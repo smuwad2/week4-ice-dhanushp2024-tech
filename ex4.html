@@ -1,32 +1,49 @@
 <html>
-
 <head>
    <title>Event Handling</title>
 </head>
-
 <body>
-
    <h1>Shopping List</h1>
    <p>Get it done today</p>
-
    <input type="text" id="inputText">
-   <!-- add a button here for adding new item -->
-
-   <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
+   <button id="addBtn">Enter</button>
+   <ul id="shoppingList">
+      <li>Notebook</li>
       <li>Jello</li>
       <li>Spinach</li>
       <li>Rice</li>
       <li>Birthday Cake</li>
       <li>Candles</li>
    </ul>
-
    <script>
+      // Function to add a delete button to an li
+      function addDeleteButton(li) {
+         var btn = document.createElement("button");
+         btn.appendChild(document.createTextNode("delete"));
+         btn.onclick = function() {
+            li.remove();
+         }
+         li.appendChild(btn);
+      }
 
-      // add code here
+      // Add delete buttons to all starting list items
+      var items = document.querySelectorAll("#shoppingList li");
+      items.forEach(function(li){
+         addDeleteButton(li);
+      });
 
+      document.getElementById("addBtn").onclick = function() {
+         var input = document.getElementById("inputText");
+         var text = input.value.trim();
+         if(text.length > 0) {
+            var ul = document.getElementById("shoppingList");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(text));
+            addDeleteButton(li); // Add the delete button to the new item
+            ul.appendChild(li);
+            input.value = "";
+         }
+      }
    </script>
-
 </body>
-
 </html>
