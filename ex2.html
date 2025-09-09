@@ -30,11 +30,19 @@
         var square=true;
        // add code here
         function changeShape() {
-            var box = document.getElementById('div1');
-            if(square) {
-            box.classList.add('circle');
-            } else {
-            box.classList.remove('circle');
+            // var box = document.getElementById('div1');
+            // if(square) {
+            // box.classList.add('circle');
+            // } else {
+            // box.classList.remove('circle');
+            // }
+            // square = !square;
+            const divElem = document.getElementById("div1");
+            if(square){
+                divElem.style.borderRadius = "50%";
+            }
+            else{
+                divElem.style.borderRadius = "0";
             }
             square = !square;
         }
