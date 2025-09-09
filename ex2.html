@@ -10,6 +10,9 @@
         }
 
         /* add CSS code here */
+        .circle {
+            border-radius: 50%;
+        }
         
     </style>
 
@@ -26,6 +29,17 @@
     <script>
         var square=true;
        // add code here
+        function changeShape() {
+            var box = document.getElementById('div1');
+            if(square) {
+            box.classList.add('circle');
+            } else {
+            box.classList.remove('circle');
+            }
+            square = !square;
+        }
+
+
         
     </script>
 
